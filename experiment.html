@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Triplet Embeddings: Textures</title>
+  <script src="https://unpkg.com/jspsych@7.3.4"></script>
+  <link href="https://unpkg.com/jspsych@7.3.4/css/jspsych.css" rel="stylesheet" type="text/css" />
+
+  <script src="https://unpkg.com/@jspsych/plugin-html-keyboard-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-image-keyboard-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-image-button-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-fullscreen@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-audio-button-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-audio-keyboard-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-multi-select@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-text@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-html-button-response@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-survey-likert@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-call-function@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych/plugin-preload@1.1.0"></script>
+  <script src="https://unpkg.com/@jspsych-contrib/plugin-pipe"></script>
+</head>
+
+<body></body>
+<script>
+  var jsPsych = initJsPsych({
+    show_progress_bar: false,
+    on_data_update: function () {
+      jsPsych.data.addProperties({ worker_id: urlvar.workerId });
+      timeline.push(save_data);
+    },
+    on_finish: function () {
+      jsPsych.data.addProperties({ worker_id: urlvar.workerId });
+      jsPsych.data.get().localSave("csv", filename);
+      timeline.push(save_data);
+    },
+    max_load_time: 120000,
+  });
+
+  /* create timeline */
+  var timeline = [];
+  const subject_id = jsPsych.randomization.randomID(10);
+  const filename = `${subject_id}.csv`;
+
+  var urlvar = jsPsych.data.urlVariables();
+
+  const save_data = {
+    type: jsPsychPipe,
+    action: "save",
+    experiment_id: "23TJCN2jsCll",
+    filename: filename,
+    data_string: () => jsPsych.data.get().csv(),
+  };
+
+  var preload = {
+    type: jsPsychPreload,
+    auto_preload: true,
+    images: [
+      "materials/imgs/D1.png",
+      "materials/imgs/D2.png",
+      "materials/imgs/D3.png",
+      "materials/imgs/D4.png",
+      "materials/imgs/D5.png",
+      "materials/imgs/D6.png",
+      "materials/imgs/D7.png",
+      "materials/imgs/D8.png",
+      "materials/imgs/D9.png",
+      "materials/imgs/D10.png",
+      "materials/imgs/D11.png",
+      "materials/imgs/D12.png",
+      "materials/imgs/D13.png",
+      "materials/imgs/D14.png",
+      "materials/imgs/D15.png",
+      "materials/imgs/D16.png",
+      "materials/imgs/D17.png",
+      "materials/imgs/D18.png",
+      "materials/imgs/D19.png",
+      "materials/imgs/D20.png",
+      "materials/imgs/D21.png",
+      "materials/imgs/D22.png",
+      "materials/imgs/D23.png",
+      "materials/imgs/D24.png",
+      "materials/imgs/D25.png",
+      "materials/imgs/D26.png",
+      "materials/imgs/D27.png",
+      "materials/imgs/D28.png",
+      "materials/imgs/D29.png",
+      "materials/imgs/D30.png",
+      "materials/imgs/D31.png",
+      "materials/imgs/D32.png",
+      "materials/imgs/D33.png",
+      "materials/imgs/D34.png",
+      "materials/imgs/D35.png",
+      "materials/imgs/D36.png",
+      "materials/imgs/D37.png",
+      "materials/imgs/D38.png",
+      "materials/imgs/D39.png",
+      "materials/imgs/D40.png",
+      "materials/imgs/D41.png",
+      "materials/imgs/D42.png",
+      "materials/imgs/D43.png",
+      "materials/imgs/D44.png",
+      "materials/imgs/D45.png",
+      "materials/imgs/D46.png",
+      "materials/imgs/D47.png",
+      "materials/imgs/D48.png",
+      "materials/imgs/D49.png",
+      "materials/imgs/D50.png",
+      "materials/imgs/D51.png",
+      "materials/imgs/D52.png",
+      "materials/imgs/D53.png",
+      "materials/imgs/D54.png",
+      "materials/imgs/D55.png",
+      "materials/imgs/D56.png",
+      "materials/imgs/D57.png",
+      "materials/imgs/D58.png",
+      "materials/imgs/D59.png",
+      "materials/imgs/D60.png",
+      "materials/imgs/D61.png",
+      "materials/imgs/D62.png",
+      "materials/imgs/D63.png",
+      "materials/imgs/D64.png",
+      "materials/imgs/D65.png",
+      "materials/imgs/D66.png",
+      "materials/imgs/D67.png",
+      "materials/imgs/D68.png",
+      "materials/imgs/D69.png",
+      "materials/imgs/D70.png",
+      "materials/imgs/D71.png",
+      "materials/imgs/D72.png",
+      "materials/imgs/D73.png",
+      "materials/imgs/D74.png",
+      "materials/imgs/D75.png",
+      "materials/imgs/D76.png",
+      "materials/imgs/D77.png",
+      "materials/imgs/D78.png",
+      "materials/imgs/D79.png",
+      "materials/imgs/D80.png",
+      "materials/imgs/D81.png",
+      "materials/imgs/D82.png",
+      "materials/imgs/D83.png",
+      "materials/imgs/D84.png",
+      "materials/imgs/D85.png",
+      "materials/imgs/D86.png",
+      "materials/imgs/D87.png",
+      "materials/imgs/D88.png",
+      "materials/imgs/D89.png",
+      "materials/imgs/D90.png",
+      "materials/imgs/D91.png",
+      "materials/imgs/D92.png",
+      "materials/imgs/D93.png",
+      "materials/imgs/D94.png",
+      "materials/imgs/D95.png",
+      "materials/imgs/D96.png",
+      "materials/imgs/D97.png",
+      "materials/imgs/D98.png",
+      "materials/imgs/D99.png",
+      "materials/imgs/D100.png",
+      "materials/imgs/D101.png",
+      "materials/imgs/D102.png",
+      "materials/imgs/D103.png",
+      "materials/imgs/D104.png",
+      "materials/imgs/D105.png",
+      "materials/imgs/D106.png",
+      "materials/imgs/D107.png",
+      "materials/imgs/D108.png",
+      "materials/imgs/D109.png",
+      "materials/imgs/D110.png",
+      "materials/imgs/D111.png",
+      "materials/imgs/D112.png",
+    ],
+    show_progress_bar: true,
+    message: "Loading experiment files...",
+    error_message:
+      "Oops! There's a problem loading files. Please refresh the page to try again.",
+  };
+  timeline.push(preload);
+
+  var stimuli_texture = [
+    { texture: "materials/imgs/D1.png" },
+    { texture: "materials/imgs/D2.png" },
+    { texture: "materials/imgs/D3.png" },
+    { texture: "materials/imgs/D4.png" },
+    { texture: "materials/imgs/D5.png" },
+    { texture: "materials/imgs/D6.png" },
+    { texture: "materials/imgs/D7.png" },
+    { texture: "materials/imgs/D8.png" },
+    { texture: "materials/imgs/D9.png" },
+    { texture: "materials/imgs/D10.png" },
+    { texture: "materials/imgs/D11.png" },
+    { texture: "materials/imgs/D12.png" },
+    { texture: "materials/imgs/D13.png" },
+    { texture: "materials/imgs/D14.png" },
+    { texture: "materials/imgs/D15.png" },
+    { texture: "materials/imgs/D16.png" },
+    { texture: "materials/imgs/D17.png" },
+    { texture: "materials/imgs/D18.png" },
+    { texture: "materials/imgs/D19.png" },
+    { texture: "materials/imgs/D20.png" },
+    { texture: "materials/imgs/D21.png" },
+    { texture: "materials/imgs/D22.png" },
+    { texture: "materials/imgs/D23.png" },
+    { texture: "materials/imgs/D24.png" },
+    { texture: "materials/imgs/D25.png" },
+    { texture: "materials/imgs/D26.png" },
+    { texture: "materials/imgs/D27.png" },
+    { texture: "materials/imgs/D28.png" },
+    { texture: "materials/imgs/D29.png" },
+    { texture: "materials/imgs/D30.png" },
+    { texture: "materials/imgs/D31.png" },
+    { texture: "materials/imgs/D32.png" },
+    { texture: "materials/imgs/D33.png" },
+    { texture: "materials/imgs/D34.png" },
+    { texture: "materials/imgs/D35.png" },
+    { texture: "materials/imgs/D36.png" },
+    { texture: "materials/imgs/D37.png" },
+    { texture: "materials/imgs/D38.png" },
+    { texture: "materials/imgs/D39.png" },
+    { texture: "materials/imgs/D40.png" },
+    { texture: "materials/imgs/D41.png" },
+    { texture: "materials/imgs/D42.png" },
+    { texture: "materials/imgs/D43.png" },
+    { texture: "materials/imgs/D44.png" },
+    { texture: "materials/imgs/D45.png" },
+    { texture: "materials/imgs/D46.png" },
+    { texture: "materials/imgs/D47.png" },
+    { texture: "materials/imgs/D48.png" },
+    { texture: "materials/imgs/D49.png" },
+    { texture: "materials/imgs/D50.png" },
+    { texture: "materials/imgs/D51.png" },
+    { texture: "materials/imgs/D52.png" },
+    { texture: "materials/imgs/D53.png" },
+    { texture: "materials/imgs/D54.png" },
+    { texture: "materials/imgs/D55.png" },
+    { texture: "materials/imgs/D56.png" },
+    { texture: "materials/imgs/D57.png" },
+    { texture: "materials/imgs/D58.png" },
+    { texture: "materials/imgs/D59.png" },
+    { texture: "materials/imgs/D60.png" },
+    { texture: "materials/imgs/D61.png" },
+    { texture: "materials/imgs/D62.png" },
+    { texture: "materials/imgs/D63.png" },
+    { texture: "materials/imgs/D64.png" },
+    { texture: "materials/imgs/D65.png" },
+    { texture: "materials/imgs/D66.png" },
+    { texture: "materials/imgs/D67.png" },
+    { texture: "materials/imgs/D68.png" },
+    { texture: "materials/imgs/D69.png" },
+    { texture: "materials/imgs/D70.png" },
+    { texture: "materials/imgs/D71.png" },
+    { texture: "materials/imgs/D72.png" },
+    { texture: "materials/imgs/D73.png" },
+    { texture: "materials/imgs/D74.png" },
+    { texture: "materials/imgs/D75.png" },
+    { texture: "materials/imgs/D76.png" },
+    { texture: "materials/imgs/D77.png" },
+    { texture: "materials/imgs/D78.png" },
+    { texture: "materials/imgs/D79.png" },
+    { texture: "materials/imgs/D80.png" },
+    { texture: "materials/imgs/D81.png" },
+    { texture: "materials/imgs/D82.png" },
+    { texture: "materials/imgs/D83.png" },
+    { texture: "materials/imgs/D84.png" },
+    { texture: "materials/imgs/D85.png" },
+    { texture: "materials/imgs/D86.png" },
+    { texture: "materials/imgs/D87.png" },
+    { texture: "materials/imgs/D88.png" },
+    { texture: "materials/imgs/D89.png" },
+    { texture: "materials/imgs/D90.png" },
+    { texture: "materials/imgs/D91.png" },
+    { texture: "materials/imgs/D92.png" },
+    { texture: "materials/imgs/D93.png" },
+    { texture: "materials/imgs/D94.png" },
+    { texture: "materials/imgs/D95.png" },
+    { texture: "materials/imgs/D96.png" },
+    { texture: "materials/imgs/D97.png" },
+    { texture: "materials/imgs/D98.png" },
+    { texture: "materials/imgs/D99.png" },
+    { texture: "materials/imgs/D100.png" },
+    { texture: "materials/imgs/D101.png" },
+    { texture: "materials/imgs/D102.png" },
+    { texture: "materials/imgs/D103.png" },
+    { texture: "materials/imgs/D104.png" },
+    { texture: "materials/imgs/D105.png" },
+    { texture: "materials/imgs/D106.png" },
+    { texture: "materials/imgs/D107.png" },
+    { texture: "materials/imgs/D108.png" },
+    { texture: "materials/imgs/D109.png" },
+    { texture: "materials/imgs/D110.png" },
+    { texture: "materials/imgs/D111.png" },
+    { texture: "materials/imgs/D112.png" },
+  ];
+
+  var texture_arr = [
+    "materials/imgs/D1.png",
+    "materials/imgs/D2.png",
+    "materials/imgs/D3.png",
+    "materials/imgs/D4.png",
+    "materials/imgs/D5.png",
+    "materials/imgs/D6.png",
+    "materials/imgs/D7.png",
+    "materials/imgs/D8.png",
+    "materials/imgs/D9.png",
+    "materials/imgs/D10.png",
+    "materials/imgs/D11.png",
+    "materials/imgs/D12.png",
+    "materials/imgs/D13.png",
+    "materials/imgs/D14.png",
+    "materials/imgs/D15.png",
+    "materials/imgs/D16.png",
+    "materials/imgs/D17.png",
+    "materials/imgs/D18.png",
+    "materials/imgs/D19.png",
+    "materials/imgs/D20.png",
+    "materials/imgs/D21.png",
+    "materials/imgs/D22.png",
+    "materials/imgs/D23.png",
+    "materials/imgs/D24.png",
+    "materials/imgs/D25.png",
+    "materials/imgs/D26.png",
+    "materials/imgs/D27.png",
+    "materials/imgs/D28.png",
+    "materials/imgs/D29.png",
+    "materials/imgs/D30.png",
+    "materials/imgs/D31.png",
+    "materials/imgs/D32.png",
+    "materials/imgs/D33.png",
+    "materials/imgs/D34.png",
+    "materials/imgs/D35.png",
+    "materials/imgs/D36.png",
+    "materials/imgs/D37.png",
+    "materials/imgs/D38.png",
+    "materials/imgs/D39.png",
+    "materials/imgs/D40.png",
+    "materials/imgs/D41.png",
+    "materials/imgs/D42.png",
+    "materials/imgs/D43.png",
+    "materials/imgs/D44.png",
+    "materials/imgs/D45.png",
+    "materials/imgs/D46.png",
+    "materials/imgs/D47.png",
+    "materials/imgs/D48.png",
+    "materials/imgs/D49.png",
+    "materials/imgs/D50.png",
+    "materials/imgs/D51.png",
+    "materials/imgs/D52.png",
+    "materials/imgs/D53.png",
+    "materials/imgs/D54.png",
+    "materials/imgs/D55.png",
+    "materials/imgs/D56.png",
+    "materials/imgs/D57.png",
+    "materials/imgs/D58.png",
+    "materials/imgs/D59.png",
+    "materials/imgs/D60.png",
+    "materials/imgs/D61.png",
+    "materials/imgs/D62.png",
+    "materials/imgs/D63.png",
+    "materials/imgs/D64.png",
+    "materials/imgs/D65.png",
+    "materials/imgs/D66.png",
+    "materials/imgs/D67.png",
+    "materials/imgs/D68.png",
+    "materials/imgs/D69.png",
+    "materials/imgs/D70.png",
+    "materials/imgs/D71.png",
+    "materials/imgs/D72.png",
+    "materials/imgs/D73.png",
+    "materials/imgs/D74.png",
+    "materials/imgs/D75.png",
+    "materials/imgs/D76.png",
+    "materials/imgs/D77.png",
+    "materials/imgs/D78.png",
+    "materials/imgs/D79.png",
+    "materials/imgs/D80.png",
+    "materials/imgs/D81.png",
+    "materials/imgs/D82.png",
+    "materials/imgs/D83.png",
+    "materials/imgs/D84.png",
+    "materials/imgs/D85.png",
+    "materials/imgs/D86.png",
+    "materials/imgs/D87.png",
+    "materials/imgs/D88.png",
+    "materials/imgs/D89.png",
+    "materials/imgs/D90.png",
+    "materials/imgs/D91.png",
+    "materials/imgs/D92.png",
+    "materials/imgs/D93.png",
+    "materials/imgs/D94.png",
+    "materials/imgs/D95.png",
+    "materials/imgs/D96.png",
+    "materials/imgs/D97.png",
+    "materials/imgs/D98.png",
+    "materials/imgs/D99.png",
+    "materials/imgs/D100.png",
+    "materials/imgs/D101.png",
+    "materials/imgs/D102.png",
+    "materials/imgs/D103.png",
+    "materials/imgs/D104.png",
+    "materials/imgs/D105.png",
+    "materials/imgs/D106.png",
+    "materials/imgs/D107.png",
+    "materials/imgs/D108.png",
+    "materials/imgs/D109.png",
+    "materials/imgs/D110.png",
+    "materials/imgs/D111.png",
+    "materials/imgs/D112.png",
+  ];
+
+  //plan:
+  //1) make a pool of random triplets
+  //2) sample
+
+  var validation_textures = [
+    {
+      head: 'materials/imgs/D1.png',
+      choice_1: 'materials/imgs/D71.png',
+      choice_2: 'materials/imgs/D11.png'
+    },
+    {
+      head: 'materials/imgs/D3.png',
+      choice_1: 'materials/imgs/D39.png',
+      choice_2: 'materials/imgs/D58.png'
+    },
+    {
+      head: 'materials/imgs/D5.png',
+      choice_1: 'materials/imgs/D10.png',
+      choice_2: 'materials/imgs/D50.png'
+    },
+    {
+      head: 'materials/imgs/D9.png',
+      choice_1: 'materials/imgs/D93.png',
+      choice_2: 'materials/imgs/D71.png'
+    },
+    {
+      head: 'materials/imgs/D10.png',
+      choice_1: 'materials/imgs/D89.png',
+      choice_2: 'materials/imgs/D34.png'
+    },
+    {
+      head: 'materials/imgs/D11.png',
+      choice_1: 'materials/imgs/D64.png',
+      choice_2: 'materials/imgs/D37.png'
+    },
+    {
+      head: 'materials/imgs/D15.png',
+      choice_1: 'materials/imgs/D11.png',
+      choice_2: 'materials/imgs/D29.png'
+    },
+    {
+      head: 'materials/imgs/D18.png',
+      choice_1: 'materials/imgs/D63.png',
+      choice_2: 'materials/imgs/D32.png'
+    },
+    {
+      head: 'materials/imgs/D23.png',
+      choice_1: 'materials/imgs/D90.png',
+      choice_2: 'materials/imgs/D43.png'
+    },
+    {
+      head: 'materials/imgs/D25.png',
+      choice_1: 'materials/imgs/D40.png',
+      choice_2: 'materials/imgs/D30.png'
+    },
+    {
+      head: 'materials/imgs/D26.png',
+      choice_1: 'materials/imgs/D31.png',
+      choice_2: 'materials/imgs/D62.png'
+    },
+    {
+      head: 'materials/imgs/D29.png',
+      choice_1: 'materials/imgs/D69.png',
+      choice_2: 'materials/imgs/D23.png'
+    },
+    {
+      head: 'materials/imgs/D30.png',
+      choice_1: 'materials/imgs/D73.png',
+      choice_2: 'materials/imgs/D25.png'
+    },
+    {
+      head: 'materials/imgs/D31.png',
+      choice_1: 'materials/imgs/D75.png',
+      choice_2: 'materials/imgs/D32.png'
+    },
+    {
+      head: 'materials/imgs/D32.png',
+      choice_1: 'materials/imgs/D82.png',
+      choice_2: 'materials/imgs/D93.png'
+    },
+    {
+      head: 'materials/imgs/D34.png',
+      choice_1: 'materials/imgs/D5.png',
+      choice_2: 'materials/imgs/D11.png'
+    },
+    {
+      head: 'materials/imgs/D37.png',
+      choice_1: 'materials/imgs/D90.png',
+      choice_2: 'materials/imgs/D93.png'
+    },
+    {
+      head: 'materials/imgs/D39.png',
+      choice_1: 'materials/imgs/D107.png',
+      choice_2: 'materials/imgs/D3.png'
+    },
+    {
+      head: 'materials/imgs/D40.png',
+      choice_1: 'materials/imgs/D50.png',
+      choice_2: 'materials/imgs/D87.png'
+    },
+    {
+      head: 'materials/imgs/D41.png',
+      choice_1: 'materials/imgs/D72.png',
+      choice_2: 'materials/imgs/D34.png'
+    },
+    {
+      head: 'materials/imgs/D42.png',
+      choice_1: 'materials/imgs/D11.png',
+      choice_2: 'materials/imgs/D91.png'
+    },
+    {
+      head: 'materials/imgs/D43.png',
+      choice_1: 'materials/imgs/D62.png',
+      choice_2: 'materials/imgs/D30.png'
+    },
+    {
+      head: 'materials/imgs/D50.png',
+      choice_1: 'materials/imgs/D39.png',
+      choice_2: 'materials/imgs/D101.png'
+    },
+    {
+      head: 'materials/imgs/D52.png',
+      choice_1: 'materials/imgs/D73.png',
+      choice_2: 'materials/imgs/D86.png'
+    },
+    {
+      head: 'materials/imgs/D55.png',
+      choice_1: 'materials/imgs/D98.png',
+      choice_2: 'materials/imgs/D86.png'
+    },
+    {
+      head: 'materials/imgs/D57.png',
+      choice_1: 'materials/imgs/D15.png',
+      choice_2: 'materials/imgs/D112.png'
+    },
+    {
+      head: 'materials/imgs/D58.png',
+      choice_1: 'materials/imgs/D34.png',
+      choice_2: 'materials/imgs/D80.png'
+    },
+    {
+      head: 'materials/imgs/D61.png',
+      choice_1: 'materials/imgs/D86.png',
+      choice_2: 'materials/imgs/D57.png'
+    },
+    {
+      head: 'materials/imgs/D62.png',
+      choice_1: 'materials/imgs/D1.png',
+      choice_2: 'materials/imgs/D82.png'
+    },
+    {
+      head: 'materials/imgs/D63.png',
+      choice_1: 'materials/imgs/D18.png',
+      choice_2: 'materials/imgs/D78.png'
+    },
+    {
+      head: 'materials/imgs/D64.png',
+      choice_1: 'materials/imgs/D102.png',
+      choice_2: 'materials/imgs/D39.png'
+    },
+    {
+      head: 'materials/imgs/D69.png',
+      choice_1: 'materials/imgs/D82.png',
+      choice_2: 'materials/imgs/D108.png'
+    },
+    {
+      head: 'materials/imgs/D71.png',
+      choice_1: 'materials/imgs/D57.png',
+      choice_2: 'materials/imgs/D88.png'
+    },
+    {
+      head: 'materials/imgs/D72.png',
+      choice_1: 'materials/imgs/D108.png',
+      choice_2: 'materials/imgs/D32.png'
+    },
+    {
+      head: 'materials/imgs/D73.png',
+      choice_1: 'materials/imgs/D86.png',
+      choice_2: 'materials/imgs/D40.png'
+    },
+    {
+      head: 'materials/imgs/D74.png',
+      choice_1: 'materials/imgs/D75.png',
+      choice_2: 'materials/imgs/D112.png'
+    },
+    {
+      head: 'materials/imgs/D75.png',
+      choice_1: 'materials/imgs/D69.png',
+      choice_2: 'materials/imgs/D43.png'
+    },
+    {
+      head: 'materials/imgs/D78.png',
+      choice_1: 'materials/imgs/D102.png',
+      choice_2: 'materials/imgs/D29.png'
+    },
+    {
+      head: 'materials/imgs/D80.png',
+      choice_1: 'materials/imgs/D87.png',
+      choice_2: 'materials/imgs/D11.png'
+    },
+    {
+      head: 'materials/imgs/D82.png',
+      choice_1: 'materials/imgs/D43.png',
+      choice_2: 'materials/imgs/D23.png'
+    },
+    {
+      head: 'materials/imgs/D83.png',
+      choice_1: 'materials/imgs/D1.png',
+      choice_2: 'materials/imgs/D72.png'
+    },
+    {
+      head: 'materials/imgs/D86.png',
+      choice_1: 'materials/imgs/D102.png',
+      choice_2: 'materials/imgs/D89.png'
+    },
+    {
+      head: 'materials/imgs/D87.png',
+      choice_1: 'materials/imgs/D69.png',
+      choice_2: 'materials/imgs/D57.png'
+    },
+    {
+      head: 'materials/imgs/D88.png',
+      choice_1: 'materials/imgs/D62.png',
+      choice_2: 'materials/imgs/D37.png'
+    },
+    {
+      head: 'materials/imgs/D89.png',
+      choice_1: 'materials/imgs/D34.png',
+      choice_2: 'materials/imgs/D74.png'
+    },
+    {
+      head: 'materials/imgs/D90.png',
+      choice_1: 'materials/imgs/D31.png',
+      choice_2: 'materials/imgs/D110.png'
+    },
+    {
+      head: 'materials/imgs/D91.png',
+      choice_1: 'materials/imgs/D86.png',
+      choice_2: 'materials/imgs/D55.png'
+    },
+    {
+      head: 'materials/imgs/D93.png',
+      choice_1: 'materials/imgs/D89.png',
+      choice_2: 'materials/imgs/D55.png'
+    },
+    {
+      head: 'materials/imgs/D94.png',
+      choice_1: 'materials/imgs/D10.png',
+      choice_2: 'materials/imgs/D11.png'
+    },
+    {
+      head: 'materials/imgs/D98.png',
+      choice_1: 'materials/imgs/D15.png',
+      choice_2: 'materials/imgs/D41.png'
+    },
+    {
+      head: 'materials/imgs/D101.png',
+      choice_1: 'materials/imgs/D72.png',
+      choice_2: 'materials/imgs/D42.png'
+    },
+    {
+      head: 'materials/imgs/D102.png',
+      choice_1: 'materials/imgs/D34.png',
+      choice_2: 'materials/imgs/D63.png'
+    },
+    {
+      head: 'materials/imgs/D107.png',
+      choice_1: 'materials/imgs/D29.png',
+      choice_2: 'materials/imgs/D83.png'
+    },
+    {
+      head: 'materials/imgs/D108.png',
+      choice_1: 'materials/imgs/D82.png',
+      choice_2: 'materials/imgs/D41.png'
+    },
+    {
+      head: 'materials/imgs/D110.png',
+      choice_1: 'materials/imgs/D23.png',
+      choice_2: 'materials/imgs/D40.png'
+    },
+    {
+      head: 'materials/imgs/D112.png',
+      choice_1: 'materials/imgs/D41.png',
+      choice_2: 'materials/imgs/D23.png'
+    }]
+
+  var check_textures = [
+    {
+      head: 'materials/imgs/D9.png',
+      choice_1: 'materials/imgs/D18.png',
+      choice_2: 'materials/imgs/D9.png',
+      correct_choice: '1'
+    },
+    {
+      head: 'materials/imgs/D18.png',
+      choice_1: 'materials/imgs/D9.png',
+      choice_2: 'materials/imgs/D18.png',
+      correct_choice: '1'
+    },
+    {
+      head: 'materials/imgs/D26.png',
+      choice_1: 'materials/imgs/D26.png',
+      choice_2: 'materials/imgs/D40.png',
+      correct_choice: '0'
+    },
+    {
+      head: 'materials/imgs/D40.png',
+      choice_1: 'materials/imgs/D40.png',
+      choice_2: 'materials/imgs/D26.png',
+      correct_choice: '0'
+    },
+    {
+      head: 'materials/imgs/D43.png',
+      choice_1: 'materials/imgs/D62.png',
+      choice_2: 'materials/imgs/D43.png',
+      correct_choice: '1'
+    },
+    {
+      head: 'materials/imgs/D62.png',
+      choice_1: 'materials/imgs/D62.png',
+      choice_2: 'materials/imgs/D43.png',
+      correct_choice: '0'
+    },
+    {
+      head: 'materials/imgs/D72.png',
+      choice_1: 'materials/imgs/D72.png',
+      choice_2: 'materials/imgs/D75.png',
+      correct_choice: '0'
+    },
+    {
+      head: 'materials/imgs/D75.png',
+      choice_1: 'materials/imgs/D72.png',
+      choice_2: 'materials/imgs/D75.png',
+      correct_choice: '1'
+    },
+    {
+      head: 'materials/imgs/D101.png',
+      choice_1: 'materials/imgs/D107.png',
+      choice_2: 'materials/imgs/D101.png',
+      correct_choice: '1'
+    },
+    {
+      head: 'materials/imgs/D107.png',
+      choice_1: 'materials/imgs/D107.png',
+      choice_2: 'materials/imgs/D101.png',
+      correct_choice: '0'
+    }]
+
+  //to shuffle the array of button choices at the beginning of the experiment
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+    console.log("Shuffled array:", array);
+    return array;
+  }
+
+  var test_stimuli = [];
+
+  // to get a random item from the array
+  function getRandomItems(arr) {
+    var temp_array = jsPsych.randomization.sampleWithoutReplacement(arr, 2);
+    arr = arr.filter((e) => e !== temp_array[0]);
+    arr = arr.filter((e) => e !== temp_array[1]);
+    return temp_array;
+  }
+
+  /* define consent trail */
+  var consent = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: "Consent",
+    choices: ["Consent & Continue"],
+  };
+
+  timeline.push(consent);
+
+  var lasttrialdata_rt = 0;
+
+  /* define testing instructions */
+  var instructions = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:
+      "<p>In each trial of this task, you will see three images: one target item on top, and two choices beneath the target item." +
+      "</p><p>For each trial, <strong>please select the item that is most like the target item.</strong>" +
+      "<p>There will be around 600 trials. You will have an opportunity to take a break halfway through. </p>" +
+      "<p>Click 'Continue' to begin the test.</p>",
+    choices: ["Continue"],
+    post_trial_gap: 2000,
+  };
+
+  timeline.push(instructions);
+
+  var fixation = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus: "+",
+    choices: "NO_KEYS",
+    trial_duration: 500,
+  };
+  timeline.push(fixation);
+
+  var arr_pair = [];
+
+  // define the trials!
+  var trial_texture = {
+    type: jsPsychImageButtonResponse,
+    stimulus: jsPsych.timelineVariable("texture"),
+    choices: function () {
+      shuffle(texture_arr);
+      arr_pair = getRandomItems(texture_arr);
+      // the following makes sure the choices and stimulus are NOT the same!
+      while (
+        arr_pair[0] == jsPsych.timelineVariable("texture") ||
+        arr_pair[1] == jsPsych.timelineVariable("texture")
+      ) {
+        arr_pair = getRandomItems(texture_arr);
+      }
+      console.log("Choices:", arr_pair);
+      return arr_pair;
+    },
+    button_html: '<button class="jspsych-btn"><img src= %choice%></button>',
+    on_finish: function (data) {
+      shuffle(texture_arr);
+      data.choices = arr_pair;
+      n = 1;
+      var data_last1 = jsPsych.data.get().last(n);
+      lasttrialdata_rt = data_last1.select("rt").mean();
+      if (lasttrialdata_rt < 900) {
+        data.speedy = true;
+      } else {
+        data.speedy = false;
+      }
+      //data.validation = false;
+      data.sampleAlg = "random";
+    },
+  };
+
+  // define the validation trials!
+  var validation_trial = {
+    type: jsPsychImageButtonResponse,
+    stimulus: function () {
+      row = validation_shuffled_doubled.pop();
+      head = row.head;
+      return head;
+    },
+    choices: function () {
+      arr_pair = [row.choice_1, row.choice_2];
+      return arr_pair;
+    },
+    button_html: '<button class="jspsych-btn"><img src= %choice%></button>',
+    on_finish: function (data) {
+      data.choices = arr_pair;
+      n = 1;
+      var data_last = jsPsych.data.get().last(n);
+      lasttrialdata_rt = data_last.select("rt").mean();
+      if (lasttrialdata_rt < 1000) {
+        data.speedy = true;
+      } else {
+        data.speedy = false;
+      }
+      //data.validation = true;
+      data.sampleAlg = "validation";
+    },
+  };
+
+  // define the attention checks!
+  var check_trial = {
+    type: jsPsychImageButtonResponse,
+    stimulus: jsPsych.timelineVariable("head"),
+    choices: function () {
+      arr_pair = [
+        jsPsych.timelineVariable("choice_1"),
+        jsPsych.timelineVariable("choice_2"),
+      ];
+      return arr_pair;
+    },
+    button_html: '<button class="jspsych-btn"><img src= %choice%></button>',
+    on_finish: function (data) {
+      data.choices = arr_pair;
+      if (data.response == jsPsych.timelineVariable("correct_choice")) {
+        data.correct = true;
+      } else {
+        data.correct = false;
+      }
+      data.sampleAlg = "check";
+    },
+  };
+
+  var if_trial_check = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus:
+      "<p><strong>Incorrect!</strong></p>That was an attention check. Please pay attention while completing this task.<p>Press 'y' to continue.</p>",
+    choices: ["y"],
+  };
+
+  var if_node_check = {
+    timeline: [if_trial_check],
+    conditional_function: function () {
+      // get the data from the previous trial,
+      // and check which key was pressed
+      var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
+      if (last_trial_correct) {
+        return false; // the parameter value has to be returned from the function
+      } else {
+        return true; // the parameter value has to be returned from the function
+      }
+    },
+  };
+
+  var if_trial_speed = {
+    type: jsPsychHtmlKeyboardResponse,
+    stimulus:
+      "<p><strong>You're going too fast.</strong><p>Please slow down and assess each triplet." +
+      "<p>Press 'y' to continue.</p></p>",
+    choices: ["y"],
+  };
+
+  var if_node_speed = {
+    timeline: [if_trial_speed],
+    conditional_function: function () {
+      // get the data from the previous trial,
+      // and check which key was pressed
+      var last_trial_speed = jsPsych.data.get().last(1).values()[0].speedy;
+      if (last_trial_speed) {
+        return true; // the parameter value has to be returned from the function;
+      } else {
+        return false;
+      }
+    },
+  };
+
+  // okay so this is to get a random set of elements...
+  function getRandom(arr, n) {
+    var result = new Array(n),
+      len = arr.length,
+      taken = new Array(len);
+    if (n > len)
+      throw new RangeError("getRandom: more elements taken than available");
+    while (n--) {
+      var x = Math.floor(Math.random() * len);
+      result[n] = arr[x in taken ? taken[x] : x];
+      taken[x] = --len in taken ? taken[len] : len;
+    }
+    return result;
+  }
+
+  //actually grabbing them
+  var selected_validation_textures = getRandom(validation_textures, 50); //
+  var validation_shuffled_doubled = jsPsych.randomization.repeat(
+    selected_validation_textures,
+    2
+  );
+
+  var validation_procedure_textures = {
+    timeline: [fixation, validation_trial, if_node_speed],
+    timeline_variables: validation_shuffled_doubled,
+    sample: {
+      type: "without-replacement",
+      size: 10,
+    },
+  };
+
+  var trial_procedure_textures = {
+    timeline: [fixation, trial_texture, if_node_speed],
+    timeline_variables: stimuli_texture,
+    randomize_order: true,
+    sample: {
+      type: "with-replacement",
+      size: 50,
+    },
+  };
+
+  var check_textures_procedure = {
+    timeline: [fixation, check_trial, if_node_check],
+    timeline_variables: check_textures,
+    sample: {
+      type: "without-replacement",
+      size: 1,
+    },
+  };
+
+  var quick_break = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus:
+      "Nice job! Feel free to take a quick break, then click 'Continue' when you are ready proceed to the next round." +
+      "<p>Remember, your task is to <strong>select the item closest to the item on top.</strong>",
+    choices: ["Continue"],
+  };
+
+  var texture_procedure = {
+    timeline: [
+      trial_procedure_textures,
+      check_textures_procedure,
+      validation_procedure_textures,
+    ],
+    randomize_order: true,
+    repetitions: 5,
+  };
+
+  timeline.push(texture_procedure);
+  timeline.push(quick_break);
+  timeline.push(texture_procedure);
+
+  // total number of face trials =
+
+  timeline.push(save_data); //ACTUALLY PUSHING DATA TO SERVER
+
+  var goodbye = {
+    type: jsPsychHtmlButtonResponse,
+    stimulus: function () {
+      output = "Woohoo! You have finished the experiment. <br>";
+      if (urlvar.workerId.length > 7) {
+        output =
+          output +
+          "<strong> Here is your secret code: CGM2PCGU </strong><br>";
+      }
+      output =
+        output +
+        "Click the button below to complete the experiment. Goodbye!<br><br>";
+      return output;
+    },
+    choices: [
+      "<a href='https://app.prolific.com/submissions/complete?cc=CGM2PCGU'>Complete Experiment</a>",
+    ],
+  };
+  timeline.push(goodbye);
+
+  jsPsych.run(timeline);
+</script>
+
+</html>
